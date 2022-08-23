@@ -1,10 +1,10 @@
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
-import Dashboard from "./Dashboard";
-import Toolbar from "@mui/material/Toolbar";
+import Routes from "./Routes";
 
+import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
 const mdTheme = createTheme();
@@ -29,7 +29,7 @@ function App() {
                         }}
                     >
                         <Toolbar />
-                        <Dashboard />
+                        <Routes />
                         <Footer />
                     </Box>
                 </Box>

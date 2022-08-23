@@ -3,7 +3,6 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
-import Link from "@mui/material/Link";
 
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -21,26 +20,41 @@ import PeopleIcon from "@mui/icons-material/People";
 import LayersIcon from "@mui/icons-material/Layers";
 
 import Toolbar from "@mui/material/Toolbar";
+import { Link } from "react-router-dom";
+
+const AppbarLink = styled(Link)`
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #000000;
+	font-size: 1.3em;
+`;
 
 const mainListItems = (
     <>
         <ListItemButton>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <AppbarLink to="/">
+                <ListItemIcon>
+                    <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+            </AppbarLink>
         </ListItemButton>
         <ListItemButton>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="도입문의 관리" />
+            <AppbarLink to="/inquiry">
+                <ListItemIcon>
+                    <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="도입문의 관리" />
+            </AppbarLink>
         </ListItemButton>
         <ListItemButton>
-            <ListItemIcon>
-                <LayersIcon />
-            </ListItemIcon>
-            <ListItemText primary="뉴스 관리" />
+            <AppbarLink to="/news">
+                <ListItemIcon>
+                    <LayersIcon />
+                </ListItemIcon>
+                <ListItemText primary="뉴스 관리" />
+            </AppbarLink>
         </ListItemButton>
     </>
 );
@@ -124,7 +138,7 @@ function Header() {
                         noWrap
                         sx={{ flexGrow: 1 }}
                     >
-                        북포스 웹 관리자 페이지
+                        북포스 웹 Admin
                     </Typography>
                 </Toolbar>
             </AppBar>
