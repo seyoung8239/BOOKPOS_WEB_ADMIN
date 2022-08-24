@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import { baseDir } from "../Constant";
@@ -18,14 +18,22 @@ import TableRow from "@mui/material/TableRow";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
+import DeleteIcon from "@mui/icons-material/Delete";
+
 function Inquiry() {
     const [inquiryList, setInquiryList] = useState([]);
 
+    async function fetchData() {
+        const data = await axios.get(`${baseDir}/estimation`);
+        setInquiryList(data.data);
+    }
+
+    const handleDeleteInquiry = useCallback(async (id) => {
+        await axios.delete(`${baseDir}/estimation/${id}`);
+        fetchData();
+    }, []);
+
     useEffect(() => {
-        async function fetchData() {
-            const data = await axios.get(`${baseDir}/estimation`);
-            setInquiryList(data.data);
-        }
         fetchData();
     }, []);
 
@@ -53,11 +61,16 @@ function Inquiry() {
                                 <TableCell>담당자명</TableCell>
                                 <TableCell>담당자 이메일</TableCell>
                                 <TableCell>담당자 연락처</TableCell>
+                                <TableCell>삭제</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {inquiryList.map((row) => (
-                                <Row key={row._id} row={row} />
+                                <Row
+                                    key={row._id}
+                                    row={row}
+                                    handleDeleteInquiry={handleDeleteInquiry}
+                                />
                             ))}
                         </TableBody>
                     </Table>
@@ -68,7 +81,7 @@ function Inquiry() {
 }
 
 function Row(props) {
-    const { row } = props;
+    const { row, handleDeleteInquiry } = props;
     const [open, setOpen] = useState(false);
 
     return (
@@ -93,6 +106,9 @@ function Row(props) {
                 <TableCell>{row.manager_name}</TableCell>
                 <TableCell>{row.manager_email}</TableCell>
                 <TableCell>{row.manager_cell}</TableCell>
+                <TableCell onClick={() => handleDeleteInquiry(row.id)}>
+                    <DeleteIcon />
+                </TableCell>
             </TableRow>
             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
                 <Collapse in={open} timeout="auto" unmountOnExit>
