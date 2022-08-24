@@ -1,7 +1,25 @@
 import { Buffer } from "buffer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function ClosedNewsItem({ news, newsOpenList, setNewsOpenList, idx }) {
-    const { image, title, content, date } = news;
+import { baseDir } from "../Constant";
+
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+
+function ClosedNewsItem({ news, idx }) {
+    const { image, title, content, date, id } = news;
+    const navigate = useNavigate();
+
+    function handleEdit() {
+        navigate('')
+        // TODO: 수정 추가
+    }
+
+    async function handleDelete() {
+        await axios.delete(`${baseDir}/news/${id}`);
+        window.location.reload();
+    }
 
     if (!image) return <></>;
     const imageString = Buffer.from(image.data.data, "base64").toString(
@@ -28,6 +46,14 @@ function ClosedNewsItem({ news, newsOpenList, setNewsOpenList, idx }) {
                     <div style={{ fontSize: "27px" }}>{title}</div>
                     <div>{date}</div>
                     <div>{content}</div>
+                </div>
+                <div style={{ display: "flex", gap: "20px" }}>
+                    <div onClick={handleEdit}>
+                        <EditIcon />
+                    </div>
+                    <div onClick={handleDelete}>
+                        <DeleteIcon />
+                    </div>
                 </div>
             </div>
         </>
