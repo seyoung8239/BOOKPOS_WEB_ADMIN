@@ -12,8 +12,7 @@ function ClosedNewsItem({ news, idx }) {
     const navigate = useNavigate();
 
     function handleEdit() {
-        navigate('')
-        // TODO: 수정 추가
+        navigate(`/edit_news/${id}`);
     }
 
     async function handleDelete() {
