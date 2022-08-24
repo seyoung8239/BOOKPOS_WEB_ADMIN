@@ -23,39 +23,40 @@ import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
 
 const AppbarLink = styled(Link)`
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	color: #000000;
-	font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.3em;
 `;
 
 const mainListItems = (
     <>
-        <ListItemButton>
+        {/* <ListItemButton>
             <AppbarLink to="/">
                 <ListItemIcon>
                     <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
             </AppbarLink>
-        </ListItemButton>
-        <ListItemButton>
-            <AppbarLink to="/inquiry">
+        </ListItemButton> */}
+        <AppbarLink to="/inquiry">
+            <ListItemButton>
                 <ListItemIcon>
                     <PeopleIcon />
                 </ListItemIcon>
                 <ListItemText primary="도입문의 관리" />
-            </AppbarLink>
-        </ListItemButton>
-        <ListItemButton>
-            <AppbarLink to="/news">
+            </ListItemButton>
+        </AppbarLink>
+
+        <AppbarLink to="/news">
+            <ListItemButton>
                 <ListItemIcon>
                     <LayersIcon />
                 </ListItemIcon>
                 <ListItemText primary="뉴스 관리" />
-            </AppbarLink>
-        </ListItemButton>
+            </ListItemButton>
+        </AppbarLink>
     </>
 );
 
