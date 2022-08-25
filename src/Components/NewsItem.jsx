@@ -7,7 +7,7 @@ import { baseDir } from "../Constant";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-function ClosedNewsItem({ news, idx }) {
+function ClosedNewsItem({ news }) {
     const { image, title, content, date, id } = news;
     const navigate = useNavigate();
 
@@ -20,16 +20,18 @@ function ClosedNewsItem({ news, idx }) {
         window.location.reload();
     }
 
-    if (!image) return <></>;
-    const imageString = Buffer.from(image.data.data, "base64").toString(
-        "ascii"
-    );
+    let imageString = "";
+    let contentType = "";
+    if (image) {
+        imageString = Buffer.from(image.data.data, "base64").toString("ascii");
+        contentType = image.contentType;
+    }
     return (
         <>
             <hr />
             <div style={{ display: "flex", padding: "30px", gap: "60px" }}>
                 <img
-                    src={`data:${image.contentType};base64,${imageString}`}
+                    src={`data:${contentType};base64,${imageString}`}
                     width="200px"
                     height="150px"
                     alt="intro1"
@@ -59,14 +61,13 @@ function ClosedNewsItem({ news, idx }) {
     );
 }
 
-function NewsItem({ news, newsOpenList, setNewsOpenList, idx }) {
+function NewsItem({ news, newsOpenList, setNewsOpenList }) {
     return (
         <>
             <ClosedNewsItem
                 news={news}
                 newsOpenList={newsOpenList}
                 setNewsOpenList={setNewsOpenList}
-                idx={idx}
             />
         </>
     );

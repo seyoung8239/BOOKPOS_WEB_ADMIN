@@ -51,7 +51,6 @@ function News() {
                         setNewsOpenList={setNewsOpenList}
                         key={i}
                         news={el}
-                        idx={i}
                     />
                 ))}
             </Paper>
