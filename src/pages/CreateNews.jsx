@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { baseDir } from "../Constant";
 
@@ -15,14 +15,22 @@ function CreateNews() {
     const [content, setContent] = useState("");
     const [file, setFile] = useState();
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("title", title);
         formData.append("content", content);
         formData.append("image", file, file.name);
 
-        axios.post(`${baseDir}/news`, formData);
+        const res = await axios.post(`${baseDir}/news`, formData);
+        if (res.data === "ok") {
+            alert("생성이 완료되었습니다.");
+            navigate("/news");
+        } else {
+            alert('생성에 실패했습니다.')
+        }
     };
 
     const handleChangeFile = useCallback((event) => {
