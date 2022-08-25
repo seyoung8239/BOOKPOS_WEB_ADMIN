@@ -56,6 +56,8 @@ function Inquiry() {
                             <TableRow>
                                 <TableCell />
                                 <TableCell>상호명</TableCell>
+                                <TableCell>서비스 타입</TableCell>
+                                <TableCell>용량추가</TableCell>
                                 <TableCell>업태</TableCell>
                                 <TableCell>소속작가 수</TableCell>
                                 <TableCell>담당자명</TableCell>
@@ -101,13 +103,15 @@ function Row(props) {
                     </IconButton>
                 </TableCell>
                 <TableCell>{row.company_name}</TableCell>
+                <TableCell>{row.type}</TableCell>
+                <TableCell>{row.capacity}</TableCell>
                 <TableCell>{row.company_business_category}</TableCell>
                 <TableCell>{row.company_writers}</TableCell>
                 <TableCell>{row.manager_name}</TableCell>
                 <TableCell>{row.manager_email}</TableCell>
                 <TableCell>{row.manager_cell}</TableCell>
                 <TableCell onClick={() => handleDeleteInquiry(row.id)}>
-                    <DeleteIcon />
+                    <DeleteIcon style={{ cursor: "pointer" }} />
                 </TableCell>
             </TableRow>
             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
@@ -115,7 +119,9 @@ function Row(props) {
                     <Typography variant="h6" gutterBottom component="div">
                         문의 상세정보
                     </Typography>
-                    <Table size="small" aria-label="purchases">
+                    <Table aria-label="purchases">
+                        <TableRow>서비스 종류: {row.type}</TableRow>
+                        <TableRow>추가용량: {row.capacity}</TableRow>
                         <TableRow>상호명: {row.company_name}</TableRow>
                         <TableRow>
                             대표자명: {row.company_representative}

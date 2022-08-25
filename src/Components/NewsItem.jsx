@@ -50,10 +50,10 @@ function ClosedNewsItem({ news }) {
                 </div>
                 <div style={{ display: "flex", gap: "20px" }}>
                     <div onClick={handleEdit}>
-                        <EditIcon />
+                        <EditIcon style={{ cursor: "pointer" }} />
                     </div>
                     <div onClick={handleDelete}>
-                        <DeleteIcon />
+                        <DeleteIcon style={{ cursor: "pointer" }} />
                     </div>
                 </div>
             </div>
