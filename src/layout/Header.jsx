@@ -32,14 +32,6 @@ const AppbarLink = styled(Link)`
 
 const mainListItems = (
     <>
-        {/* <ListItemButton>
-            <AppbarLink to="/">
-                <ListItemIcon>
-                    <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-            </AppbarLink>
-        </ListItemButton> */}
         <AppbarLink to="/inquiry">
             <ListItemButton>
                 <ListItemIcon>

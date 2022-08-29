@@ -13,6 +13,7 @@ function Routes() {
     return (
         <>
             <RouteWrapper>
+                <Route path="/" element={<SignIn />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route
                     path="/inquiry"
