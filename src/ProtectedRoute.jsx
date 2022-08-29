@@ -5,7 +5,7 @@ function ProtectedRoute({ isLogin, children }) {
     const navigate = useNavigate();
     useEffect(() => {
         if (isLogin === null) {
-            navigate("/signin");
+            navigate("/admin/signin");
         }
     }, [isLogin, navigate]);
 

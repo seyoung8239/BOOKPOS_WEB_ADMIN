@@ -13,10 +13,10 @@ function Routes() {
     return (
         <>
             <RouteWrapper>
-                <Route path="/" element={<SignIn />} />
-                <Route path="/signin" element={<SignIn />} />
+                <Route path="/admin" element={<SignIn />} />
+                <Route path="/admin/signin" element={<SignIn />} />
                 <Route
-                    path="/inquiry"
+                    path="/admin/inquiry"
                     element={
                         <ProtectedRoute isLogin={isLogin}>
                             <Inquiry />
@@ -24,7 +24,7 @@ function Routes() {
                     }
                 />
                 <Route
-                    path="/news"
+                    path="/admin/news"
                     element={
                         <ProtectedRoute isLogin={isLogin}>
                             <News />
@@ -32,7 +32,7 @@ function Routes() {
                     }
                 />
                 <Route
-                    path="/create_news"
+                    path="/admin/create_news"
                     element={
                         <ProtectedRoute isLogin={isLogin}>
                             <CreateNews />
@@ -40,7 +40,7 @@ function Routes() {
                     }
                 />
                 <Route
-                    path="/edit_news/:id"
+                    path="/admin/edit_news/:id"
                     element={
                         <ProtectedRoute isLogin={isLogin}>
                             <EditNews />

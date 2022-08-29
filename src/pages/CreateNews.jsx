@@ -27,7 +27,7 @@ function CreateNews() {
         const res = await axios.post(`${baseDir}/api/news`, formData);
         if (res.data === "ok") {
             alert("생성이 완료되었습니다.");
-            navigate("/news");
+            navigate("/admin/news");
         } else {
             alert('생성에 실패했습니다.')
         }
@@ -85,7 +85,7 @@ function CreateNews() {
                 >
                     <Button style={{ width: "80px" }} variant="outlined">
                         <Link
-                            to="/news"
+                            to="/admin/news"
                             style={{ textDecoration: "none", color: "blue" }}
                         >
                             취소

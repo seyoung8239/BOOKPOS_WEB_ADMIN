@@ -22,7 +22,7 @@ function SignIn() {
     useEffect(() => {
         if (isLogin && isLogin !== "null") {
             localStorage.setItem("token", isLogin);
-            navigate("/inquiry");
+            navigate("/admin/inquiry");
         }
     }, []);
 
@@ -36,7 +36,7 @@ function SignIn() {
             const token = new Date().getTime();
             localStorage.setItem("token", token);
             setIsLogin("" + token);
-            navigate("/inquiry");
+            navigate("/admin/inquiry");
         } else {
             alert("계정이 올바르지 않습니다.");
         }

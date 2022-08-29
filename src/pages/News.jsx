@@ -39,7 +39,7 @@ function News() {
                 </Typography>
                 <Button style={{ width: "80px" }} variant="contained">
                     <Link
-                        to="/create_news"
+                        to="/admin/create_news"
                         style={{ textDecoration: "none", color: "white" }}
                     >
                         글쓰기

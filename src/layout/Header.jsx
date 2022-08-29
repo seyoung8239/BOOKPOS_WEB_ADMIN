@@ -15,7 +15,6 @@ import ListItemText from "@mui/material/ListItemText";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import LayersIcon from "@mui/icons-material/Layers";
 
@@ -32,7 +31,7 @@ const AppbarLink = styled(Link)`
 
 const mainListItems = (
     <>
-        <AppbarLink to="/inquiry">
+        <AppbarLink to="/admin/inquiry">
             <ListItemButton>
                 <ListItemIcon>
                     <PeopleIcon />
@@ -41,7 +40,7 @@ const mainListItems = (
             </ListItemButton>
         </AppbarLink>
 
-        <AppbarLink to="/news">
+        <AppbarLink to="/admin/news">
             <ListItemButton>
                 <ListItemIcon>
                     <LayersIcon />

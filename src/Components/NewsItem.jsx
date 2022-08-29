@@ -12,7 +12,7 @@ function ClosedNewsItem({ news }) {
     const navigate = useNavigate();
 
     function handleEdit() {
-        navigate(`/edit_news/${id}`);
+        navigate(`/admin/edit_news/${id}`);
     }
 
     async function handleDelete() {

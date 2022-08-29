@@ -3,7 +3,6 @@ import axios from "axios";
 import { Buffer } from "buffer";
 import { Link, useParams } from "react-router-dom";
 
-import { dataURLtoFile } from "../utils";
 import { baseDir } from "../Constant";
 
 import { Typography } from "@mui/material";
@@ -97,7 +96,7 @@ function EditNews() {
                 >
                     <Button style={{ width: "80px" }} variant="outlined">
                         <Link
-                            to="/news"
+                            to="/admin/news"
                             style={{ textDecoration: "none", color: "blue" }}
                         >
                             취소
