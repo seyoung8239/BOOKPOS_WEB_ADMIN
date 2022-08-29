@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProtectedRoute({ isLogin, children }) {
-    console.log(isLogin);
     const navigate = useNavigate();
     useEffect(() => {
-        if (!isLogin) {
-            console.log("nav");
+        if (isLogin === null) {
             navigate("/signin");
         }
     }, [isLogin, navigate]);

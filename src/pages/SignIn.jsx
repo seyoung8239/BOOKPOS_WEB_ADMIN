@@ -18,12 +18,13 @@ const theme = createTheme();
 function SignIn() {
     const { isLogin, setIsLogin } = useAuth();
     const navigate = useNavigate();
+
     useEffect(() => {
-        if (isLogin) {
+        if (isLogin && isLogin !== "null") {
             localStorage.setItem("token", isLogin);
             navigate("/inquiry");
         }
-    }, [isLogin, navigate]);
+    }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -36,6 +37,8 @@ function SignIn() {
             localStorage.setItem("token", token);
             setIsLogin("" + token);
             navigate("/inquiry");
+        } else {
+            alert("계정이 올바르지 않습니다.");
         }
     };
 
