@@ -16,7 +16,7 @@ function News() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get(`${baseDir}/news`);
+            const res = await axios.get(`${baseDir}/api/news`);
             const n = res.data.length;
             setNewsData(res.data);
             setNewsOpenList(new Array(n).fill(false));

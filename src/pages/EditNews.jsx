@@ -21,7 +21,7 @@ function EditNews() {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await axios.get(`${baseDir}/news/${id}`);
+            const res = await axios.get(`${baseDir}/api/news/${id}`);
             const data = res.data[0];
             const binaryImage = Buffer.from(data.image.data, "base64").toString(
                 "ascii"
@@ -42,7 +42,7 @@ function EditNews() {
         formData.append("content", content);
         formData.append("image", file, file.name);
 
-        axios.post(`${baseDir}/news`, formData);
+        axios.post(`${baseDir}/api/news`, formData);
     };
 
     const handleChangeFile = useCallback((event) => {

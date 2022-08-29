@@ -24,7 +24,7 @@ function CreateNews() {
         formData.append("content", content);
         formData.append("image", file, file.name);
 
-        const res = await axios.post(`${baseDir}/news`, formData);
+        const res = await axios.post(`${baseDir}/api/news`, formData);
         if (res.data === "ok") {
             alert("생성이 완료되었습니다.");
             navigate("/news");

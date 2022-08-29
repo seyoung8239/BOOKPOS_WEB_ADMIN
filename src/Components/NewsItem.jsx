@@ -16,7 +16,7 @@ function ClosedNewsItem({ news }) {
     }
 
     async function handleDelete() {
-        await axios.delete(`${baseDir}/news/${id}`);
+        await axios.delete(`${baseDir}/api/news/${id}`);
         window.location.reload();
     }
 

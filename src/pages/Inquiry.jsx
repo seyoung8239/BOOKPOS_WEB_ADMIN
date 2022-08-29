@@ -24,12 +24,12 @@ function Inquiry() {
     const [inquiryList, setInquiryList] = useState([]);
 
     async function fetchData() {
-        const data = await axios.get(`${baseDir}/estimation`);
+        const data = await axios.get(`${baseDir}/api/estimation`);
         setInquiryList(data.data);
     }
 
     const handleDeleteInquiry = useCallback(async (id) => {
-        await axios.delete(`${baseDir}/estimation/${id}`);
+        await axios.delete(`${baseDir}/api/estimation/${id}`);
         fetchData();
     }, []);
 
